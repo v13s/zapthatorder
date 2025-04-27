@@ -1,52 +1,96 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
+import ShippingForm from "@/components/checkout/ShippingForm";
+import PaymentMethod from "@/components/checkout/PaymentMethod";
+import OrderSummary from "@/components/checkout/OrderSummary";
 
 const Checkout: React.FC = () => {
+  const navigate = useNavigate();
+  const { cart, clearCart } = useCart();
+  const [loading, setLoading] = useState(false);
+
+  if (cart.items.length === 0) {
+    navigate("/cart");
+    return null;
+  }
+
+  const handleApplyCoupon = (code: string) => {
+    // In a real app, validate coupon code with backend
+    toast({
+      title: "Coupon Applied",
+      description: `Coupon ${code} has been applied to your order.`
+    });
+  };
+
+  const handleApplyPoints = (points: number) => {
+    // In a real app, validate and apply points with backend
+    toast({
+      title: "Points Applied",
+      description: `${points} points have been applied to your order.`
+    });
+  };
+
+  const handlePlaceOrder = async () => {
+    setLoading(true);
+    try {
+      // In a real app, submit order to backend
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      clearCart();
+      toast({
+        title: "Order Placed",
+        description: "Your order has been successfully placed!"
+      });
+      navigate("/order-confirmation");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to place order. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Layout>
-      <div className="container-custom py-12">
-        <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+      <div className="container-custom py-8">
+        <h1 className="text-3xl font-bold mb-8">Checkout</h1>
         
-        <div className="max-w-md mx-auto text-center py-12">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="64"
-            height="64"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="mx-auto mb-6 text-muted-foreground"
-          >
-            <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-            <line x1="12" x2="12" y1="8" y2="16" />
-            <line x1="8" x2="16" y1="12" y2="12" />
-          </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-8">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <ShippingForm onSubmit={() => {}} />
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <PaymentMethod />
+            </div>
+          </div>
           
-          <h2 className="text-2xl font-bold mb-2">Checkout Coming Soon</h2>
-          <p className="text-muted-foreground mb-8">
-            This functionality will be implemented in a future update. In a complete implementation, this page would include:
-          </p>
-          
-          <ul className="text-left text-muted-foreground space-y-2 mb-6">
-            <li>• Shipping address form</li>
-            <li>• Payment method selection</li>
-            <li>• Order summary</li>
-            <li>• Loyalty points application</li>
-            <li>• Coupon code redemption</li>
-          </ul>
-          
-          <Separator className="my-8" />
-          
-          <Button asChild>
-            <Link to="/cart">Return to Cart</Link>
-          </Button>
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <OrderSummary 
+              onApplyCoupon={handleApplyCoupon}
+              onApplyPoints={handleApplyPoints}
+            />
+            
+            <Separator className="my-6" />
+            
+            <Button 
+              className="w-full"
+              size="lg"
+              disabled={loading}
+              onClick={handlePlaceOrder}
+            >
+              {loading ? "Processing..." : "Place Order"}
+            </Button>
+          </div>
         </div>
       </div>
     </Layout>
