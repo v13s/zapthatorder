@@ -14,6 +14,8 @@ import CartPage from "./pages/CartPage";
 import AuthPage from "./pages/AuthPage";
 import LoyaltyPage from "./pages/LoyaltyPage";
 import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import ProfilePage from "./pages/ProfilePage";
 
 // Contexts
 import { CartProvider } from "./contexts/CartContext";
