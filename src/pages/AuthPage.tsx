@@ -23,6 +23,7 @@ const AuthPage: React.FC = () => {
   // Register form state
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPhone, setRegisterPhone] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [joinLoyalty, setJoinLoyalty] = useState(true);
   
@@ -45,7 +46,7 @@ const AuthPage: React.FC = () => {
     setIsLoading(true);
     
     try {
-      await register(registerName, registerEmail, registerPassword, joinLoyalty);
+      await register(registerName, registerEmail, registerPassword, joinLoyalty, registerPhone);
       navigate("/");
     } catch (error) {
       console.error("Registration error:", error);
@@ -74,7 +75,6 @@ const AuthPage: React.FC = () => {
               </TabsTrigger>
             </TabsList>
             
-            {/* Login Form */}
             <TabsContent value="login">
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <form onSubmit={handleLogin} className="space-y-4">
@@ -140,7 +140,6 @@ const AuthPage: React.FC = () => {
               </div>
             </TabsContent>
             
-            {/* Register Form */}
             <TabsContent value="register">
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <form onSubmit={handleRegister} className="space-y-4">
@@ -171,6 +170,21 @@ const AuthPage: React.FC = () => {
                         className="pl-10"
                         value={registerEmail}
                         onChange={(e) => setRegisterEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="register-phone">Phone Number *</Label>
+                    <div className="relative">
+                      <Input
+                        id="register-phone"
+                        type="tel"
+                        placeholder="+1234567890"
+                        className="pl-10"
+                        value={registerPhone}
+                        onChange={(e) => setRegisterPhone(e.target.value)}
                         required
                       />
                     </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { User, ShoppingCart, Search, Menu, X } from "lucide-react";
@@ -9,6 +8,7 @@ import { Input } from "@/components/ui/input";
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [user, setUser] = useState(null);
 
   // Mock categories - would come from API in a real application
   const categories = [
@@ -42,10 +42,34 @@ const Navbar: React.FC = () => {
 
           {/* Account and Cart */}
           <div className="flex items-center space-x-4">
-            <Link to="/auth" className="nav-link hidden sm:flex items-center space-x-1">
-              <User className="h-5 w-5" />
-              <span className="hidden md:inline">Account</span>
-            </Link>
+            <div className="relative group">
+              <Link to="/auth" className="nav-link hidden sm:flex items-center space-x-1">
+                <User className="h-5 w-5" />
+                <span className="hidden md:inline">Account</span>
+              </Link>
+              {user && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                  <Link
+                    to="/profile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    to="/profile/orders"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Orders
+                  </Link>
+                  <Link
+                    to="/loyalty"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Loyalty Points
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link to="/cart" className="nav-link flex items-center space-x-1">
               <div className="relative">
                 <ShoppingCart className="h-5 w-5" />

@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { User } from "@/types";
 import { useToast } from "@/components/ui/use-toast";
@@ -8,7 +7,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoyaltyMember: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (name: string, email: string, password: string, joinLoyalty: boolean) => Promise<void>;
+  register: (name: string, email: string, password: string, joinLoyalty: boolean, phone: string) => Promise<void>;
   logout: () => void;
   enrollInLoyalty: () => void;
 }
@@ -19,7 +18,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const { toast } = useToast();
   const [user, setUser] = useState<User | null>(null);
 
-  // Load user from localStorage on initial render
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
@@ -31,7 +29,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  // Save user to localStorage whenever it changes
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
@@ -41,12 +38,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [user]);
 
   const login = async (email: string, password: string) => {
-    // This is a mock implementation - in a real app, this would call an API
     try {
-      // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Mock user data - in a real app, this would come from the API
       const mockUser: User = {
         id: 1,
         name: "John Doe",
@@ -69,17 +63,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const register = async (name: string, email: string, password: string, joinLoyalty: boolean) => {
-    // This is a mock implementation - in a real app, this would call an API
+  const register = async (name: string, email: string, password: string, joinLoyalty: boolean, phone: string) => {
     try {
-      // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Mock user data - in a real app, this would come from the API
       const mockUser: User = {
-        id: Date.now(), // Use timestamp as mock ID
+        id: Date.now(),
         name,
         email,
+        phone,
         isLoyaltyMember: joinLoyalty
       };
       
