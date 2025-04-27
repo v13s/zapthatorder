@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -8,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "@/contexts/AuthContext";
-import { UserPlus, User, Mail, Key, Google, Facebook } from "lucide-react";
+import { UserPlus, User, Mail, Key, Github, Facebook } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const AuthPage: React.FC = () => {
@@ -130,8 +129,8 @@ const AuthPage: React.FC = () => {
                 
                 <div className="grid grid-cols-2 gap-4">
                   <Button variant="outline" type="button" className="w-full">
-                    <Google className="mr-2 h-4 w-4" />
-                    Google
+                    <Github className="mr-2 h-4 w-4" />
+                    Github
                   </Button>
                   <Button variant="outline" type="button" className="w-full">
                     <Facebook className="mr-2 h-4 w-4" />
@@ -226,8 +225,8 @@ const AuthPage: React.FC = () => {
                 
                 <div className="grid grid-cols-2 gap-4">
                   <Button variant="outline" type="button" className="w-full">
-                    <Google className="mr-2 h-4 w-4" />
-                    Google
+                    <Github className="mr-2 h-4 w-4" />
+                    Github
                   </Button>
                   <Button variant="outline" type="button" className="w-full">
                     <Facebook className="mr-2 h-4 w-4" />

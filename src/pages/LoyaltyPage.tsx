@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -11,6 +10,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLoyalty } from "@/contexts/LoyaltyContext";
 import { Medal, Star, Gift, ArrowRight } from "lucide-react";
 import { LoyaltyTier } from "@/types";
+import { loyaltyTiers } from "@/data/mockData";
 
 const LoyaltyPage: React.FC = () => {
   const navigate = useNavigate();
