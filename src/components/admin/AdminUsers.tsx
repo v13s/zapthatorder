@@ -26,6 +26,34 @@ export function AdminUsers() {
       phone: "+0987654321",
       isLoyaltyMember: false,
     },
+    {
+      id: 3,
+      name: "Michael Johnson",
+      email: "michael@example.com",
+      phone: "+1122334455",
+      isLoyaltyMember: true,
+    },
+    {
+      id: 4,
+      name: "Emily Williams",
+      email: "emily@example.com",
+      phone: "+5566778899",
+      isLoyaltyMember: true,
+    },
+    {
+      id: 5,
+      name: "Robert Brown",
+      email: "robert@example.com",
+      phone: "+1357924680",
+      isLoyaltyMember: false,
+    },
+    {
+      id: 6,
+      name: "Lisa Davis",
+      email: "lisa@example.com",
+      phone: "+2468013579",
+      isLoyaltyMember: true,
+    }
   ];
 
   return (

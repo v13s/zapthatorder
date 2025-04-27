@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Clothify</h4>
+            <h4 className="text-lg font-semibold mb-4">ZapThatOrder</h4>
             <p className="text-sm text-muted-foreground mb-4">
               Premium clothing and accessories with rewards for our loyal customers.
             </p>
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
               <a href="https://instagram.com" className="text-muted-foreground hover:text-foreground">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="mailto:contact@clothify.com" className="text-muted-foreground hover:text-foreground">
+              <a href="mailto:contact@zapthatorder.com" className="text-muted-foreground hover:text-foreground">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Clothify. All rights reserved.
+            &copy; {new Date().getFullYear()} ZapThatOrder. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/terms" className="text-xs text-muted-foreground hover:text-foreground">

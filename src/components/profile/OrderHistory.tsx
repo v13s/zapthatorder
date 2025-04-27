@@ -27,6 +27,34 @@ export function OrderHistory() {
       status: "Processing",
       items: 2,
     },
+    {
+      id: "ORD-003",
+      date: "2024-04-22",
+      total: 45.50,
+      status: "Delivered",
+      items: 1,
+    },
+    {
+      id: "ORD-004",
+      date: "2024-04-18",
+      total: 199.99,
+      status: "Delivered",
+      items: 4,
+    },
+    {
+      id: "ORD-005",
+      date: "2024-04-15",
+      total: 75.50,
+      status: "Cancelled",
+      items: 2,
+    },
+    {
+      id: "ORD-006",
+      date: "2024-04-10",
+      total: 150.00,
+      status: "Delivered",
+      items: 3,
+    }
   ];
 
   return (

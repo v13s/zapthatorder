@@ -10,7 +10,7 @@ const AdminPage = () => {
   return (
     <Layout>
       <div className="container-custom py-8">
-        <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
+        <h1 className="text-2xl font-bold mb-6">ZapThatOrder Admin Dashboard</h1>
         
         <Tabs defaultValue="users">
           <TabsList>

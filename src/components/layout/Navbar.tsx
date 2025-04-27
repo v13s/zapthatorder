@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { User, ShoppingCart, Search, Menu, X } from "lucide-react";
@@ -25,7 +26,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-brand-purple">Clothify</span>
+            <span className="text-2xl font-bold text-brand-purple">ZapThatOrder</span>
           </Link>
 
           {/* Search - hidden on mobile */}
@@ -43,32 +44,36 @@ const Navbar: React.FC = () => {
           {/* Account and Cart */}
           <div className="flex items-center space-x-4">
             <div className="relative group">
-              <Link to="/auth" className="nav-link hidden sm:flex items-center space-x-1">
+              <Link to="/profile" className="nav-link flex items-center space-x-1">
                 <User className="h-5 w-5" />
                 <span className="hidden md:inline">Account</span>
               </Link>
-              {user && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
-                  <Link
-                    to="/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Profile
-                  </Link>
-                  <Link
-                    to="/profile/orders"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Orders
-                  </Link>
-                  <Link
-                    to="/loyalty"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Loyalty Points
-                  </Link>
-                </div>
-              )}
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                <Link
+                  to="/profile"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Profile
+                </Link>
+                <Link
+                  to="/profile"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Orders
+                </Link>
+                <Link
+                  to="/loyalty"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Loyalty Points
+                </Link>
+                <Link
+                  to="/admin"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Admin Dashboard
+                </Link>
+              </div>
             </div>
             <Link to="/cart" className="nav-link flex items-center space-x-1">
               <div className="relative">
@@ -111,6 +116,18 @@ const Navbar: React.FC = () => {
           >
             Loyalty Program
           </Link>
+          <Link
+            to="/profile"
+            className="px-4 h-full flex items-center text-sm font-medium nav-link"
+          >
+            Profile
+          </Link>
+          <Link
+            to="/admin"
+            className="px-4 h-full flex items-center text-sm font-medium nav-link"
+          >
+            Admin
+          </Link>
         </nav>
       </div>
 
@@ -146,11 +163,18 @@ const Navbar: React.FC = () => {
                 Loyalty Program
               </Link>
               <Link
-                to="/auth"
+                to="/profile"
                 className="block px-2 py-2 text-base font-medium nav-link"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Account
+                Profile
+              </Link>
+              <Link
+                to="/admin"
+                className="block px-2 py-2 text-base font-medium nav-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Admin
               </Link>
             </nav>
           </div>

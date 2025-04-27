@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
               Summer Collection <span className="text-brand-purple">2025</span>
             </h1>
             <p className="text-lg mb-6 text-muted-foreground">
-              Discover our latest arrivals and earn rewards with every purchase through our loyalty program.
+              Discover our latest arrivals and earn rewards with every purchase through our ZapThatOrder loyalty program.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">

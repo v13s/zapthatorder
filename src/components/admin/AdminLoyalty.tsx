@@ -26,6 +26,34 @@ export function AdminLoyalty() {
       tier: "Silver",
       lastActivity: "2024-04-25",
     },
+    {
+      id: 3,
+      user: "Michael Johnson",
+      points: 750,
+      tier: "Platinum",
+      lastActivity: "2024-04-28",
+    },
+    {
+      id: 4,
+      user: "Emily Williams",
+      points: 175,
+      tier: "Bronze",
+      lastActivity: "2024-04-26",
+    },
+    {
+      id: 5,
+      user: "Robert Brown",
+      points: 425,
+      tier: "Gold",
+      lastActivity: "2024-04-27",
+    },
+    {
+      id: 6,
+      user: "Lisa Davis",
+      points: 600,
+      tier: "Platinum",
+      lastActivity: "2024-04-29",
+    }
   ];
 
   return (
