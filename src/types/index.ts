@@ -1,4 +1,3 @@
-
 // Product Types
 export interface Product {
   id: number;
@@ -49,7 +48,15 @@ export interface User {
   id: number;
   name: string;
   email: string;
+  phone?: string;
+  address?: string;
   isLoyaltyMember: boolean;
+  socialLinks?: {
+    facebook?: string;
+    twitter?: string;
+    instagram?: string;
+    linkedin?: string;
+  };
 }
 
 // Loyalty Types

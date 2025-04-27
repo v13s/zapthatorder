@@ -39,7 +39,8 @@ const App = () => (
                 <Route path="/auth" element={<AuthPage />} />
                 <Route path="/loyalty" element={<LoyaltyPage />} />
                 <Route path="/checkout" element={<Checkout />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="/order-confirmation" element={<OrderConfirmation />} />
+                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
